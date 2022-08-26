@@ -1,0 +1,36 @@
+@apiUrl = http://localhost:3000/api
+
+# Obter a lista
+GET {{apiUrl}}/aplicacaoVacinas
+Content-Type: application/json
+###
+
+# Inserir novo 
+POST {{apiUrl}}/aplicacaoVacinas
+Content-Type: application/json
+
+{
+ "dataAplicacao": "2022-08-25",
+ "dataReaplicacao": "",
+ "pet": "63080a787316b973effee37d",
+ "vacina": "63080d7cd77c1d9345df4486"
+}
+###
+
+# Alterar 
+PUT {{apiUrl}}/aplicacaoVacinas
+Content-Type: application/json
+
+{
+ "_id": "630814257c8f8bdb52d7cfce",
+ "dataAplicacao": "2022-08-25",
+ "dataReaplicacao": "2022-08-30",
+ "pet": "63080a787316b973effee37d",
+ "vacina": "63080d7cd77c1d9345df4486"
+}
+###
+
+# Excluir
+DELETE {{apiUrl}}/aplicacaoVacinas/630814257c8f8bdb52d7cfce
+Content-Type: application/json
+###

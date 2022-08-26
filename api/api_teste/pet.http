@@ -1,0 +1,38 @@
+@apiUrl = http://localhost:3000/api
+
+# Obter a lista de pets
+GET {{apiUrl}}/pets
+Content-Type: application/json
+###
+
+# Inserir novo pets
+POST {{apiUrl}}/pets
+Content-Type: application/json
+
+{
+ "nome": "Cachorro 2", 
+ "especie": "Cachorro",
+ "sexo": "M", 
+ "porte": "Medio", 
+ "cliente": "6307fe0784068979847e2fd1"
+}
+###
+
+# Alterar pets
+PUT {{apiUrl}}/pets
+Content-Type: application/json
+
+{
+ "_id": "63080a787316b973effee37d",
+ "nome": "Cachorro alterado", 
+ "especie": "Cachorro",
+ "sexo": "M", 
+ "porte": "Medio", 
+ "cliente": "6307fe0784068979847e2fd1"
+}
+###
+
+# Excluir um pets
+DELETE {{apiUrl}}/pets/63080aa47316b973effee382
+Content-Type: application/json
+###

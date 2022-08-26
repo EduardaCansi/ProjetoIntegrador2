@@ -1,0 +1,33 @@
+@apiUrl = http://localhost:3000/api
+
+# Obter a lista 
+GET {{apiUrl}}/veterinarios
+Content-Type: application/json
+###
+
+# Inserir novo 
+POST {{apiUrl}}/veterinarios
+Content-Type: application/json
+
+{
+ "nome": "Veterinario 2", 
+ "telefone": "99999999",
+ "crmv": "999999999",
+ "cpf": "999999999", 
+ "email": "Veterinario2@teste.com"
+}
+###
+
+# Alterar 
+PUT {{apiUrl}}/veterinarios
+Content-Type: application/json
+
+{
+ "_id": "63081939954a3c2fd45744c1",
+  "nome": "Veterinario alterado", 
+ "telefone": "99999999",
+ "crmv": "999999999",
+ "cpf": "999999999", 
+ "email": "Veterinario2@teste.com"
+}
+###

@@ -1,0 +1,45 @@
+@apiUrl = http://localhost:3000/api
+
+# Obter a lista de clientes
+GET {{apiUrl}}/clientes
+Content-Type: application/json
+###
+
+# Inserir novo cliente
+POST {{apiUrl}}/clientes
+Content-Type: application/json
+
+{
+ "nome": "Fulano2", 
+ "cpf": "99999999",
+ "dataNascimento": "2000-01-25", 
+ "telefone": "999999999", 
+ "email": "Fulano2@teste.com", 
+ "senha": "1234"
+}
+###
+
+# Alterar cliente
+PUT {{apiUrl}}/clientes
+Content-Type: application/json
+
+{
+ "_id": "6307fe0784068979847e2fd1",
+ "nome": "Eduarda alterado 2", 
+ "cpf": "99999999",
+ "dataNascimento": "2000-01-25", 
+ "telefone": "999999999", 
+ "email": "teste@teste.com", 
+ "senha": "1234"
+}
+###
+
+# Obter pelo id
+GET {{apiUrl}}/clientes/6307fe0784068979847e2fd1
+Content-Type: application/json
+###
+
+# Obter atividade filtrando
+GET {{apiUrl}}/clientes/filtro/Fulano
+Content-Type: application/json
+###

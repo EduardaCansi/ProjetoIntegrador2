@@ -1,0 +1,30 @@
+@apiUrl = http://localhost:3000/api
+
+# Obter a lista de vacinas
+GET {{apiUrl}}/vacinas
+Content-Type: application/json
+###
+
+# Inserir novo vacinas
+POST {{apiUrl}}/vacinas
+Content-Type: application/json
+
+{
+ "nome": "Raiva"
+}
+###
+
+# Alterar vacinas
+PUT {{apiUrl}}/vacinas
+Content-Type: application/json
+
+{
+ "_id": "63080dead77c1d9345df448c",
+ "nome": "Vacina Raiva"
+}
+###
+
+# Excluir um vacinas
+DELETE {{apiUrl}}/vacinas/63080da6d77c1d9345df4488
+Content-Type: application/json
+###

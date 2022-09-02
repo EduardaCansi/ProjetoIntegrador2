@@ -6,7 +6,6 @@ const controle = require('../controller/ClienteCont');
 routes.route('/clientes').get(controle.listar);
 routes.route('/clientes').post(controle.incluir);
 routes.route('/clientes').put(controle.alterar);
-routes.route('/clientes/:id').get(controle.obterPeloId);
 routes.route('/clientes/filtro/:filtro').get(controle.filtrar);
 
 //routes.route('/clientes/login').post(controle.login);

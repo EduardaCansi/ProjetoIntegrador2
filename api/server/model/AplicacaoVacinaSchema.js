@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const AplicacaoVacinaSchema = new mongoose.Schema({
     dataAplicacao: { type: Date, required: true },
     dataReaplicacao: { type: Date },
+    obs: { type: String },
     pet: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Pet',

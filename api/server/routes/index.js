@@ -10,6 +10,9 @@ routes.use(cors({ origin: "*" }));
 const clienteRout = require("./ClienteRout");
 routes.use("/api", clienteRout);
 
+const usuarioRout = require("./UsuarioRout");
+routes.use("/api", usuarioRout);
+
 const petRout = require("./PetRout");
 routes.use("/api", petRout);
 

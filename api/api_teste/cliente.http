@@ -11,8 +11,6 @@ Content-Type: application/json
 
 {
  "nome": "Fulano2", 
- "cpf": "99999999",
- "dataNascimento": "2000-01-25", 
  "telefone": "999999999", 
  "email": "Fulano2@teste.com", 
  "senha": "1234"

@@ -25,7 +25,7 @@ const VacinaForm = (props) => {
                 <div className="card">
                     <h4 style={{ textAlign: "center" }}>Cadastro de Vacinas</h4>
 
-                    <div className="p-fluid grid formgrid">
+                    <div style={{ padding: 15 }} className="p-fluid grid formgrid">
                         <div className="field col-12 md:col-4">
                             <label htmlFor="nome">Nome*</label>
                             <InputText
@@ -54,13 +54,13 @@ const VacinaForm = (props) => {
                         <Button
                             type="submit"
                             icon="pi pi-check"
-                            className="p-button-raised p-button-rounded p-button-text"
+                            className="p-button-raised p-button-rounded p-button-text p-button-help"
                             label="Salvar"
                         ></Button>
                         <Button
                             type="button"
                             icon="pi pi-times"
-                            className="p-button-raised p-button-rounded p-button-text"
+                            className="p-button-raised p-button-rounded p-button-text p-button-help"
                             label="Cancelar"
                             onClick={props.cancelar}
                         ></Button>

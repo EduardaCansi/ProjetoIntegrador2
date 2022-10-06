@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Menubar } from "primereact/menubar";
 
+
 function Menu() {
     let navigate = useNavigate();
 
@@ -17,10 +18,10 @@ function Menu() {
             icon: "pi pi-fw pi-file",
             items: [
                 {
-                    label: "Vacina",
-                    icon: "pi pi-fw pi-user",
+                    label: "Pet",
+                    icon: "pi pi-fw pi-list",
                     command: () => {
-                        navigate("/vacinas");
+                        navigate("/pets");
                     },
                 },
             ],

@@ -10,11 +10,11 @@ POST {{apiUrl}}/veterinarios
 Content-Type: application/json
 
 {
- "nome": "Veterinario 2", 
- "telefone": "99999999",
- "crmv": "999999999",
- "cpf": "999999999", 
- "email": "Veterinario2@teste.com"
+   "nome":"Veterinario testee",
+   "telefone":"99999999",
+   "crmv":"999999999",
+   "email":"Veterinarioteste2@teste.com",
+   "senha":"1234",
 }
 ###
 

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const ClienteSchema = new mongoose.Schema({
-    idUser: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario',
-    }
+    nome: { type: String, required: true },
+    telefone: { type: Number, required: true },
+    email: { type: String, required: true, unique: true },
+    senha: { type: String, required: true }
 });
 
 module.exports = mongoose.model("Cliente", ClienteSchema);

@@ -2,6 +2,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import '../../App.css';
+import React from "react";
 
 const PetList = (props) => {
     const operacoes = (row) => (

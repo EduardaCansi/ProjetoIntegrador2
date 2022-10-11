@@ -24,6 +24,13 @@ function Menu() {
                         navigate("/pets");
                     },
                 },
+                {
+                    label: "Veterinario",
+                    icon: "pi pi-fw pi-list",
+                    command: () => {
+                        navigate("/veterinarios");
+                    },
+                },
             ],
         },
     ];

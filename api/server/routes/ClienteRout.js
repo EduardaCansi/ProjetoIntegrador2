@@ -7,6 +7,7 @@ routes.route('/clientes').get(controle.listar);
 routes.route('/clientes').post(controle.incluir);
 routes.route('/clientes').put(controle.alterar);
 routes.route('/clientes/filtro/:filtro').get(controle.filtrar);
+routes.route("/clientes/:id").delete(controle.excluir);
 
 //routes.route('/clientes/login').post(controle.login);
 

@@ -10,9 +10,9 @@ POST {{apiUrl}}/clientes
 Content-Type: application/json
 
 {
- "nome": "Fulano2", 
+ "nome": "Maria", 
  "telefone": "999999999", 
- "email": "Fulano2@teste.com", 
+ "email": "Maria@teste.com", 
  "senha": "1234"
 }
 ###

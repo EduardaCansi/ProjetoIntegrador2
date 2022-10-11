@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useForm } from "react-hook-form";
@@ -18,6 +18,10 @@ const PetForm = (props) => {
     const onSubmit = (data) => {
         props.salvar();
     };
+
+    useEffect(() => {
+        atualizarLista();
+      }, []);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -100,8 +104,8 @@ const PetForm = (props) => {
                                         message: "O campo deve ter no máximo 100 caracteres!",
                                     },
                                     minLength: {
-                                        value: 2,
-                                        message: "O campo deve ter no mínimo 2 caracteres!",
+                                        value: 1,
+                                        message: "O campo deve ter no mínimo 1 caracteres!",
                                     },
                                 })}
                                 defaultValue={props.pet.sexo}
@@ -125,8 +129,8 @@ const PetForm = (props) => {
                                         message: "O campo deve ter no máximo 100 caracteres!",
                                     },
                                     minLength: {
-                                        value: 2,
-                                        message: "O campo deve ter no mínimo 2 caracteres!",
+                                        value: 1,
+                                        message: "O campo deve ter no mínimo 1 caracteres!",
                                     },
                                 })}
                                 defaultValue={props.pet.porte}

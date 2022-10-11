@@ -57,8 +57,10 @@ const ClienteForm = (props) => {
                             <label htmlFor="telefone">Telefone*</label>
                             <InputMask
                                 id="telefone"
+                                name="telefone"
                                 mask="(99) 9 9999-9999"
                                 placeholder="(99) 9 9999-9999"
+                                defaultValue={props.cliente.telefone}
                                 onChange={handleInputChange}>
                             </InputMask>
                         </div>

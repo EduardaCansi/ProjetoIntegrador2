@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const AplicacaoVacinaSchema = new mongoose.Schema({
-    dataAplicacao: { type: Date, required: true },
-    dataReaplicacao: { type: Date },
+    dataAplicacao: { type: String, required: true },
+    dataReaplicacao: { type: String },
     obs: { type: String },
     pet: {
         type: mongoose.Schema.Types.ObjectId,

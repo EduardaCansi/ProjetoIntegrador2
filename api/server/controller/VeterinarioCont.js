@@ -21,6 +21,12 @@ module.exports = {
         });
     },
 
+    excluir: async (req, res) => {
+        Veterinario.deleteOne({ _id: req.params.id }, function (err) {
+            err ? res.status(400).send(err) : res.status(200).json("message:ok");
+        });
+    },
+
     /* login: async (req, res) => {
         Veterinario.findOne({ email: req.body.email }, async function (err, obj) {
             if (err) return res.status(400).send(err);

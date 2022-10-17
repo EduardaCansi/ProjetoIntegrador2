@@ -4,7 +4,7 @@ module.exports = {
     listar: async (req, res) => {
         Pet.find((err, objetos) => {
             (err ? res.status(400).send(err) : res.status(200).json(objetos));
-        }).sort({ nome: 1 }); // -1 decrescente 1 crescente
+        }).populate("cliente").sort({ nome: 1 }); // -1 decrescente 1 crescente
     },
 
     incluir: async (req, res) => {

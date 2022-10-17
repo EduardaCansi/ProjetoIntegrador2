@@ -1,16 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import VeterinarioList from "./VeterinarioList";
-import VeterinarioSrv from "./VeterinarioSrv";
+import AplicacaoVacinaList from "./AplicacaoVacinaList";
+import AplicacaoVacinaSrv from "./AplicacaoVacinaSrv";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
-import { ConfirmDialog } from "primereact/confirmdialog";
+import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
-function VeterinarioCon() {
-    const [editando] = useState(false);
-    const [veterinarios, setVeterinarios] = useState([]);
+function AplicacaoVacinaCon() {
+    const initialState = { id: null, nome: "" };
+    const [aplicacaoVacina, setAplicacaoVacina] = useState(initialState);
+    const [editando, setEditando] = useState(false);
+    const [aplicacaoVacinas, setAplicacaoVacinas] = useState([]);
     const toastRef = useRef();
 
     useEffect(() => {
@@ -18,9 +20,9 @@ function VeterinarioCon() {
     }, []);
 
     const atualizarLista = () => {
-        VeterinarioSrv.getVeterinarios()
+        AplicacaoVacinaSrv.getAplicacaoVacinas()
             .then((resp) => {
-                setVeterinarios(resp);
+                setAplicacaoVacinas(resp);
                 toastRef.current.show({
                     severity: "sucess",
                     summary: "Lista atualizada",
@@ -41,8 +43,8 @@ function VeterinarioCon() {
             <div>
                 <Toast ref={toastRef} />
                 <ConfirmDialog />
-                <VeterinarioList
-                    veterinarios={veterinarios}
+                <AplicacaoVacinaList
+                    aplicacaoVacinas={aplicacaoVacinas}
                     onClickAtualizar={atualizarLista}
                 />
             </div>
@@ -50,4 +52,4 @@ function VeterinarioCon() {
     }
 }
 
-export default VeterinarioCon;
+export default AplicacaoVacinaCon;

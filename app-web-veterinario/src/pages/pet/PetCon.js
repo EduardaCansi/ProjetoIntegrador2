@@ -40,13 +40,11 @@ function PetCon() {
     };
 
     const editar = (_id) => {
-        const pet = pets.find((pet) => pet._id == _id)
-        setPet({
-          ...pet,
-          cliente: pet.cliente._id
-        });
+        setPet(
+            pets.filter((pet) => pet._id == _id)[0]
+        );
         setEditando(true);
-      };
+    };
 
     const excluir = (_id) => {
         confirmDialog({

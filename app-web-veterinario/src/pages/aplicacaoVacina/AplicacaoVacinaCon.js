@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PetList from "./PetList";
-import PetForm from "./PetForm";
-import PetSrv from "./PetSrv";
+import AplicacaoVacinaList from "./AplicacaoVacinaList";
+import AplicacaoVacinaForm from "./AplicacaoVacinaForm";
+import AplicacaoVacinaSrv from "./AplicacaoVacinaSrv";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
-function PetCon() {
+function AplicacaoVacinaCon() {
     const initialState = { id: null, nome: "" };
-    const [pet, setPet] = useState(initialState);
+    const [aplicacaoVacina, setAplicacaoVacina] = useState(initialState);
     const [editando, setEditando] = useState(false);
-    const [pets, setPets] = useState([]);
+    const [aplicacaoVacinas, setAplicacaoVacinas] = useState([]);
     const toastRef = useRef();
 
     useEffect(() => {
@@ -21,9 +21,9 @@ function PetCon() {
     }, []);
 
     const atualizarLista = () => {
-        PetSrv.getPets()
+        AplicacaoVacinaSrv.getAplicacaoVacinas()
             .then((resp) => {
-                setPets(resp);
+                setAplicacaoVacinas(resp);
                 toastRef.current.show({
                     severity: "sucess",
                     summary: "Lista atualizada",
@@ -39,14 +39,6 @@ function PetCon() {
             });
     };
 
-    const editar = (_id) => {
-        const pet = pets.find((pet) => pet._id == _id)
-        setPet({
-          ...pet,
-          cliente: pet.cliente._id
-        });
-        setEditando(true);
-      };
 
     const excluir = (_id) => {
         confirmDialog({
@@ -62,7 +54,7 @@ function PetCon() {
     };
 
     const excluirConfirm = (_id) => {
-        PetSrv.deletPets(_id)
+        AplicacaoVacinaSrv.deletAplicacaoVacinas(_id)
             .then((resp) => {
                 atualizarLista();
                 toastRef.current.show({
@@ -82,14 +74,14 @@ function PetCon() {
 
     // operação inserir
     const inserir = () => {
-        setPet(initialState);
+        setAplicacaoVacina(initialState);
         setEditando(true);
     };
 
     const salvar = () => {
-        if (pet._id == null) {
+        if (aplicacaoVacina._id == null) {
             // inclussão
-            PetSrv.postPets(pet)
+            AplicacaoVacinaSrv.postAplicacaoVacinas(aplicacaoVacina)
                 .then((resp) => {
                     setEditando(false);
                     atualizarLista();
@@ -108,7 +100,7 @@ function PetCon() {
                 });
         } else {
             // alteração
-            PetSrv.putPets(pet)
+            AplicacaoVacinaSrv.putAplicacaoVacinas(aplicacaoVacina)
                 .then((resp) => {
                     setEditando(false);
                     atualizarLista();
@@ -137,10 +129,9 @@ function PetCon() {
             <div>
                 <Toast ref={toastRef} />
                 <ConfirmDialog />
-                <PetList
-                    pets={pets}
+                <AplicacaoVacinaList
+                    aplicacaoVacinas={aplicacaoVacinas}
                     inserir={inserir}
-                    editar={editar}
                     excluir={excluir}
                     onClickAtualizar={atualizarLista}
                 />
@@ -150,9 +141,9 @@ function PetCon() {
         return (
             <div>
                 <Toast ref={toastRef} />
-                <PetForm
-                    pet={pet}
-                    setPet={setPet}
+                <AplicacaoVacinaForm
+                    aplicacaoVacina={aplicacaoVacina}
+                    setAplicacaoVacina={setAplicacaoVacina}
                     salvar={salvar}
                     cancelar={cancelar}
                 />
@@ -161,4 +152,4 @@ function PetCon() {
     }
 }
 
-export default PetCon;
+export default AplicacaoVacinaCon;

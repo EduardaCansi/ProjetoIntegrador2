@@ -9,6 +9,10 @@ import Menu from './Menu';
 
 const Home = lazy(() => import("./pages/home/Home"));
 const VacinaCon = lazy(() => import("./pages/vacina/VacinaCon"));
+const VeterinarioCon = lazy(() => import("./pages/veterinario/VeterinarioCon"));
+const PetCon = lazy(() => import("./pages/pet/PetCon"));
+const ClienteCon = lazy(() => import("./pages/cliente/ClienteCon"));
+const AplicacaoVacinaCon = lazy(() => import("./pages/aplicacaoVacina/AplicacaoVacinaCon"));
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/vacinas" element={<VacinaCon />} />
+          <Route path="/veterinarios" element={<VeterinarioCon />} />
+          <Route path="/pets" element={<PetCon />} />
+          <Route path="/clientes" element={<ClienteCon />} />
+          <Route path="/aplicacaoVacinas" element={<AplicacaoVacinaCon />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

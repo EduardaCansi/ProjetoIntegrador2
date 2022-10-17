@@ -11,6 +11,7 @@ const Home = lazy(() => import("./pages/home/Home"));
 const PetCon = lazy(() => import("./pages/pet/PetCon"));
 const ClienteCon = lazy(() => import("./pages/cliente/ClienteCon"));
 const VeterinarioCon = lazy(() => import("./pages/veterinario/VeterinarioCon"));
+const AplicacaoVacinaCon = lazy(() => import("./pages/aplicacaoVacina/AplicacaoVacinaCon"));
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/pets" element={<PetCon />} />
           <Route path="/clientes" element={<ClienteCon />} />
           <Route path="/veterinarios" element={<VeterinarioCon />} />
+          <Route path="/aplicacaoVacinas" element={<AplicacaoVacinaCon />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

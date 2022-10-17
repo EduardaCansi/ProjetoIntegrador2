@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PetList from "./PetList";
-import PetForm from "./PetForm";
-import PetSrv from "./PetSrv";
+import VeterinarioList from "./VeterinarioList";
+import VeterinarioForm from "./VeterinarioForm";
+import VeterinarioSrv from "./VeterinarioSrv";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
-function PetCon() {
+function VeterinarioCon() {
     const initialState = { id: null, nome: "" };
-    const [pet, setPet] = useState(initialState);
+    const [veterinario, setVeterinario] = useState(initialState);
     const [editando, setEditando] = useState(false);
-    const [pets, setPets] = useState([]);
+    const [veterinarios, setVeterinarios] = useState([]);
     const toastRef = useRef();
 
     useEffect(() => {
@@ -21,9 +21,9 @@ function PetCon() {
     }, []);
 
     const atualizarLista = () => {
-        PetSrv.getPets()
+        VeterinarioSrv.getVeterinarios()
             .then((resp) => {
-                setPets(resp);
+                setVeterinarios(resp);
                 toastRef.current.show({
                     severity: "sucess",
                     summary: "Lista atualizada",
@@ -40,13 +40,11 @@ function PetCon() {
     };
 
     const editar = (_id) => {
-        const pet = pets.find((pet) => pet._id == _id)
-        setPet({
-          ...pet,
-          cliente: pet.cliente._id
-        });
+        setVeterinario(
+            veterinarios.filter((veterinario) => veterinario._id == _id)[0]
+        );
         setEditando(true);
-      };
+    };
 
     const excluir = (_id) => {
         confirmDialog({
@@ -62,7 +60,7 @@ function PetCon() {
     };
 
     const excluirConfirm = (_id) => {
-        PetSrv.deletPets(_id)
+        VeterinarioSrv.deletVeterinarios(_id)
             .then((resp) => {
                 atualizarLista();
                 toastRef.current.show({
@@ -82,14 +80,14 @@ function PetCon() {
 
     // operação inserir
     const inserir = () => {
-        setPet(initialState);
+        setVeterinario(initialState);
         setEditando(true);
     };
 
     const salvar = () => {
-        if (pet._id == null) {
+        if (veterinario._id == null) {
             // inclussão
-            PetSrv.postPets(pet)
+            VeterinarioSrv.postVeterinarios(veterinario)
                 .then((resp) => {
                     setEditando(false);
                     atualizarLista();
@@ -108,7 +106,7 @@ function PetCon() {
                 });
         } else {
             // alteração
-            PetSrv.putPets(pet)
+            VeterinarioSrv.putVeterinarios(veterinario)
                 .then((resp) => {
                     setEditando(false);
                     atualizarLista();
@@ -137,8 +135,8 @@ function PetCon() {
             <div>
                 <Toast ref={toastRef} />
                 <ConfirmDialog />
-                <PetList
-                    pets={pets}
+                <VeterinarioList
+                    veterinarios={veterinarios}
                     inserir={inserir}
                     editar={editar}
                     excluir={excluir}
@@ -150,9 +148,9 @@ function PetCon() {
         return (
             <div>
                 <Toast ref={toastRef} />
-                <PetForm
-                    pet={pet}
-                    setPet={setPet}
+                <VeterinarioForm
+                    veterinario={veterinario}
+                    setVeterinario={setVeterinario}
                     salvar={salvar}
                     cancelar={cancelar}
                 />
@@ -161,4 +159,4 @@ function PetCon() {
     }
 }
 
-export default PetCon;
+export default VeterinarioCon;

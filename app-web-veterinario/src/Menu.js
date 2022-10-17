@@ -14,7 +14,7 @@ function Menu() {
             },
         },
         {
-            label: "Cadastro",
+            label: "Cadastros",
             icon: "pi pi-fw pi-file",
             items: [
                 {
@@ -22,6 +22,26 @@ function Menu() {
                     icon: "pi pi-fw pi-list",
                     command: () => {
                         navigate("/vacinas");
+                    },
+                },
+            ],
+        },
+        {
+            label: "Consultas",
+            icon: "pi pi-fw pi-file",
+            items: [
+                {
+                    label: "Veterinarios",
+                    icon: "pi pi-fw pi-list",
+                    command: () => {
+                        navigate("/veterinarios");
+                    },
+                },
+                {
+                    label: "Clientes",
+                    icon: "pi pi-fw pi-list",
+                    command: () => {
+                        navigate("/clientes");
                     },
                 },
             ],

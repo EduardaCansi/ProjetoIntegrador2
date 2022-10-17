@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import VeterinarioList from "./VeterinarioList";
-import VeterinarioSrv from "./VeterinarioSrv";
+import ClienteList from "./ClienteList";
+import ClienteSrv from "./ClienteSrv";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog } from "primereact/confirmdialog";
 
-function VeterinarioCon() {
+function ClienteCon() {
     const [editando] = useState(false);
-    const [veterinarios, setVeterinarios] = useState([]);
+    const [clientes, setClientes] = useState([]);
     const toastRef = useRef();
 
     useEffect(() => {
@@ -18,9 +18,9 @@ function VeterinarioCon() {
     }, []);
 
     const atualizarLista = () => {
-        VeterinarioSrv.getVeterinarios()
+        ClienteSrv.getClientes()
             .then((resp) => {
-                setVeterinarios(resp);
+                setClientes(resp);
                 toastRef.current.show({
                     severity: "sucess",
                     summary: "Lista atualizada",
@@ -36,13 +36,14 @@ function VeterinarioCon() {
             });
     };
 
+
     if (!editando) {
         return (
             <div>
                 <Toast ref={toastRef} />
                 <ConfirmDialog />
-                <VeterinarioList
-                    veterinarios={veterinarios}
+                <ClienteList
+                    clientes={clientes}
                     onClickAtualizar={atualizarLista}
                 />
             </div>
@@ -50,4 +51,4 @@ function VeterinarioCon() {
     }
 }
 
-export default VeterinarioCon;
+export default ClienteCon;

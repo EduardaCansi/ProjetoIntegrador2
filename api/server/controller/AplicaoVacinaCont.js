@@ -4,7 +4,7 @@ module.exports = {
     listar: async (req, res) => {
         AplicacaoVacina.find((err, objetos) => {
             (err ? res.status(400).send(err) : res.status(200).json(objetos));
-        }).sort({ nome: 1 }); // -1 decrescente 1 crescente
+        }).populate("pet").populate("vacina").populate("veterinario").sort({ nome: 1 }); // -1 decrescente 1 crescente
     },
 
     incluir: async (req, res) => {

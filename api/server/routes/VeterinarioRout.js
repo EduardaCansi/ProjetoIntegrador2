@@ -6,6 +6,7 @@ const controle = require('../controller/VeterinarioCont');
 routes.route('/veterinarios').get(controle.listar);
 routes.route('/veterinarios').post(controle.incluir);
 routes.route('/veterinarios').put(controle.alterar);
+routes.route("/veterinarios/:id").delete(controle.excluir);
 
 //routes.route('/veterinarios/login').post(controle.login);
 

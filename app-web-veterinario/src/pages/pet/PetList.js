@@ -9,17 +9,10 @@ const PetList = (props) => {
         <>
             <Button
                 type="button"
-                icon="pi pi-pencil"
+                icon="pi pi-eye"
                 className="p-button-raised p-button-rounded p-button-text p-button-help"
-                label="Editar"
-                onClick={() => props.editar(row._id)}
-            ></Button>
-            <Button
-                type="button"
-                icon="pi pi-trash"
-                className="p-button-raised p-button-rounded p-button-text p-button-help"
-                label="Excluir"
-                onClick={() => props.excluir(row._id)}
+                label="Vacinas"
+                onClick={() => window.location.href = 'http://localhost:3001/aplicacaoVacinas'}
             ></Button>
         </>
     );
@@ -27,16 +20,6 @@ const PetList = (props) => {
     return (
         <div style={{ padding: 15 }}>
             <h4 style={{ textAlign: "center" }}>Manter Pets</h4>
-
-            <div style={{ textAlign: "end", padding: 5 }}>
-                <Button
-                    type="button"
-                    icon="pi pi-plus"
-                    className="p-button-raised p-button-rounded p-button-text p-button-help"
-                    label="Inserir"
-                    onClick={props.inserir}
-                ></Button>
-            </div>
 
             <div className="card">
                 <DataTable

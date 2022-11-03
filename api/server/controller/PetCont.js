@@ -26,4 +26,10 @@ module.exports = {
             err ? res.status(400).send(err) : res.status(200).json("message:ok");
         });
     },
+
+    obterPeloId: async (req, res) => {
+        Pet.findOne({ _id: req.params.id }, function (err, objetos) {
+            (err ? res.status(400).send(err) : res.status(200).json(objetos));
+        });
+    },
 };

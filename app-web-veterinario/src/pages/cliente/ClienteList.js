@@ -8,17 +8,10 @@ const ClienteList = (props) => {
         <>
             <Button
                 type="button"
-                icon="pi pi-pencil"
+                icon="pi pi-eye"
                 className="p-button-raised p-button-rounded p-button-text p-button-help"
-                label="Editar"
-                onClick={() => props.editar(row._id)}
-            ></Button>
-            <Button
-                type="button"
-                icon="pi pi-trash"
-                className="p-button-raised p-button-rounded p-button-text p-button-help"
-                label="Excluir"
-                onClick={() => props.excluir(row._id)}
+                label="Pets"
+                onClick={() => window.location.href = 'http://localhost:3001/pets?cliente=' + row._id}
             ></Button>
         </>
     );
@@ -41,6 +34,8 @@ const ClienteList = (props) => {
                     onSelectionChange={(e) => props.setClientes(e.value)}
                 >
                     <Column field="nome" header="Nome" sortable filter></Column>
+                    <Column field="telefone" header="Telefone"></Column>
+                    <Column field="email" header="E-mail"></Column>
                     <Column header="Operações" body={operacoes}></Column>
                 </DataTable>
             </div>

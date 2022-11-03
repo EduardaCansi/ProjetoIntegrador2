@@ -21,6 +21,12 @@ module.exports = {
         });
     },
 
+    obterPeloId: async (req, res) => {
+        Cliente.findOne({ _id: req.params.id }, function (err, objetos) {
+            (err ? res.status(400).send(err) : res.status(200).json(objetos));
+        });
+    },
+
     filtrar: async (req, res) => {
         Cliente.find({
             $or: [

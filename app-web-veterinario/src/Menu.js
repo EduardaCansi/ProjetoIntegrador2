@@ -32,14 +32,14 @@ function Menu() {
             items: [
                 {
                     label: "Veterinarios",
-                    icon: "pi pi-fw pi-list",
+                    icon: "pi pi-fw pi-user",
                     command: () => {
                         navigate("/veterinarios");
                     },
                 },
                 {
                     label: "Clientes",
-                    icon: "pi pi-fw pi-list",
+                    icon: "pi pi-fw pi-user",
                     command: () => {
                         navigate("/clientes");
                     },

@@ -10,25 +10,10 @@ class PetSrv {
         } catch (error) { }
     }
 
-    async postPets(Pet) {
-        try {
-            const response = await api.post(this.url, JSON.stringify(Pet));
-            return response.data;
-        } catch (error) { }
-    }
-
-    async putPets(Pet) {
-        try {
-            const response = await api.put(this.url, JSON.stringify(Pet));
-            return response.data;
-        } catch (error) { }
-    }
-
-    async deletPets(id) {
-        try {
-            const response = await api.delete(this.url + "/" + id);
-            return response.data;
-        } catch (error) { }
+    async obterPeloId(id) {
+        return await api.get(this.url + "/" + id).catch((err) => {
+            throw err;
+        });
     }
 }
 export default new PetSrv();

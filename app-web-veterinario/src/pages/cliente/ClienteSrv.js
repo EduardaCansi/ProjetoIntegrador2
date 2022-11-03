@@ -30,5 +30,11 @@ class ClienteSrv {
             return response.data;
         } catch (error) { }
     }
+
+    async obterPeloId(id) {
+        return await api.get(this.url + "/" + id).catch((err) => {
+            throw err;
+        });
+    }
 }
 export default new ClienteSrv();

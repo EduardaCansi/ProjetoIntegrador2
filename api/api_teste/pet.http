@@ -36,3 +36,8 @@ Content-Type: application/json
 DELETE {{apiUrl}}/pets/63080aa47316b973effee382
 Content-Type: application/json
 ###
+
+# Obter pelo id
+GET {{apiUrl}}/pets/633f307120a63a369f7bf713
+Content-Type: application/json
+###

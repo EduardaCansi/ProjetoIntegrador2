@@ -24,7 +24,7 @@ const VacinaList = (props) => {
 
     return (
         <div style={{ padding: 15 }}>
-            <h4 style={{ textAlign: "center" }}>Manter Vacinas</h4>
+            <h4 style={{ textAlign: "center" }}>Listagem de Vacinas</h4>
 
             <div style={{ textAlign: "end", padding: 5 }}>
                 <Button

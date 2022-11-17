@@ -20,7 +20,7 @@ const AplicacaoVacinaList = (props) => {
 
     return (
         <div style={{ padding: 15 }}>
-            <h4 style={{ textAlign: "center" }}>Manter Aplicações de Vacinas</h4>
+            <h4 style={{ textAlign: "center" }}>Vacinas Aplicadas</h4>
 
             <div style={{ textAlign: "end", padding: 5 }}>
                 <Button

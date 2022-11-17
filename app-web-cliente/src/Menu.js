@@ -7,31 +7,27 @@ function Menu() {
 
     const items = [
         {
-            label: "Home",
-            icon: "pi pi-fw pi-home",
+            label: "Pets",
+            icon: "pi pi-fw pi-list",
             command: () => {
                 navigate("/");
             },
         },
         {
-            label: "Cadastro",
-            icon: "pi pi-fw pi-file",
-            items: [
-                {
-                    label: "Pet",
-                    icon: "pi pi-fw pi-list",
-                    command: () => {
-                        navigate("/pets");
-                    },
-                },
-                {
-                    label: "Veterinario",
-                    icon: "pi pi-fw pi-list",
-                    command: () => {
-                        navigate("/veterinarios");
-                    },
-                },
-            ],
+            label: "Veterinarios",
+            icon: "pi pi-fw pi-users",
+            command: () => {
+                navigate("/veterinarios");
+            },
+        },
+        {
+            label: "Sair",
+            icon: "pi pi-fw pi-power-off",
+            command: () => {
+                sessionStorage.setItem('token',
+                    '');
+            },
+            url: '/'
         },
     ];
 

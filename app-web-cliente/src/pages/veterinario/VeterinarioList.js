@@ -23,8 +23,8 @@ const VeterinarioList = (props) => {
                     onSelectionChange={(e) => props.setVeterinarios(e.value)}
                 >
                     <Column field="nome" header="Nome" sortable filter></Column>
-                    <Column field="crmv" header="Crmv" sortable filter></Column>
-                    <Column field="telefone" header="Telefone" sortable filter></Column>
+                    <Column field="crmv" header="Crmv"></Column>
+                    <Column field="telefone" header="Telefone"></Column>
                 </DataTable>
             </div>
         </div>

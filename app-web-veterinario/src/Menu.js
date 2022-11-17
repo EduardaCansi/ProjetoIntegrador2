@@ -7,8 +7,8 @@ function Menu() {
 
     const items = [
         {
-            label: "Home",
-            icon: "pi pi-fw pi-home",
+            label: "Clientes",
+            icon: "pi pi-fw pi-users",
             command: () => {
                 navigate("/");
             },
@@ -32,19 +32,35 @@ function Menu() {
             items: [
                 {
                     label: "Veterinarios",
-                    icon: "pi pi-fw pi-user",
+                    icon: "pi pi-fw pi-list",
                     command: () => {
                         navigate("/veterinarios");
                     },
                 },
                 {
-                    label: "Clientes",
-                    icon: "pi pi-fw pi-user",
+                    label: "Pets",
+                    icon: "pi pi-fw pi-list",
                     command: () => {
-                        navigate("/clientes");
+                        navigate("/pets");
+                    },
+                },
+                {
+                    label: "Aplicações",
+                    icon: "pi pi-fw pi-list",
+                    command: () => {
+                        navigate("/aplicacaoVacinas");
                     },
                 },
             ],
+        },
+        {
+            label: "Sair",
+            icon: "pi pi-fw pi-power-off",
+            command: () => {
+                sessionStorage.setItem('token',
+                    '');
+            },
+            url: '/'
         },
     ];
 

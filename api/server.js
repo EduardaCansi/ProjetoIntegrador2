@@ -18,7 +18,7 @@ app.use(express.json()); // para tratar json
 routes.use(cors({ origin: "*" }));
 //routes.use(cors({origin: 'http://localhost:3001'}));
 
-//require("dotenv").config();
+require("dotenv").config();
 // definir porta para a API de serviço
 const port = process.env.PORT || 3000;
 

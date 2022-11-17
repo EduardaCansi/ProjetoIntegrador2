@@ -6,8 +6,9 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Menu from './Menu';
+import LoginForm from "./pages/login/LoginForm";
 
-const Home = lazy(() => import("./pages/home/Home"));
+
 const VacinaCon = lazy(() => import("./pages/vacina/VacinaCon"));
 const VeterinarioCon = lazy(() => import("./pages/veterinario/VeterinarioCon"));
 const PetCon = lazy(() => import("./pages/pet/PetCon"));
@@ -15,17 +16,25 @@ const ClienteCon = lazy(() => import("./pages/cliente/ClienteCon"));
 const AplicacaoVacinaCon = lazy(() => import("./pages/aplicacaoVacina/AplicacaoVacinaCon"));
 
 function App() {
+
+  const [token, setToken] = useState([])
+  useEffect(() => {
+    setToken(sessionStorage.getItem('token'));
+  }, []);
+  if (!token || token <= '') {
+    return <LoginForm />
+  }
+
   return (
     <BrowserRouter>
       <Menu />
 
       <Suspense fallback={<div>Carregando ...</div>}>
         <Routes>
-          <Route index path="/" element={<Home />} />
+          <Route index path="/" element={<ClienteCon />} />
           <Route path="/vacinas" element={<VacinaCon />} />
           <Route path="/veterinarios" element={<VeterinarioCon />} />
           <Route path="/pets" element={<PetCon />} />
-          <Route path="/clientes" element={<ClienteCon />} />
           <Route path="/aplicacaoVacinas" element={<AplicacaoVacinaCon />} />
         </Routes>
       </Suspense>

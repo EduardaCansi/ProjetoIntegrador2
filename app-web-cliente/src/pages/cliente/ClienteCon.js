@@ -46,38 +46,6 @@ function ClienteCon() {
         setEditando(true);
     };
 
-    const excluir = (_id) => {
-        confirmDialog({
-            message: "Confirmar a exclusão?",
-            header: "Confirmação",
-            icon: "pi pi-,question",
-            acceptLabel: "Sim",
-            rejectLabel: "Não",
-            acceptClassName: "p-button-help p-button-outlined",
-            rejectClassName: "p-button-help",
-            accept: () => excluirConfirm(_id),
-        });
-    };
-
-    const excluirConfirm = (_id) => {
-        ClienteSrv.deletClientes(_id)
-            .then((resp) => {
-                atualizarLista();
-                toastRef.current.show({
-                    severity: "success",
-                    summary: "Excluído",
-                    life: 2000,
-                });
-            })
-            .catch((e) => {
-                toastRef.current.show({
-                    severity: "error",
-                    summary: e.message,
-                    life: 4000,
-                });
-            });
-    };
-
     // operação inserir
     const inserir = () => {
         setCliente(initialState);
@@ -139,7 +107,6 @@ function ClienteCon() {
                     clientes={clientes}
                     inserir={inserir}
                     editar={editar}
-                    excluir={excluir}
                     onClickAtualizar={atualizarLista}
                 />
             </div>

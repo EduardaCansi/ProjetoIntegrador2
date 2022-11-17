@@ -10,10 +10,10 @@ POST {{apiUrl}}/veterinarios
 Content-Type: application/json
 
 {
-   "nome":"Veterinario testee",
+   "nome":"Vitoria",
    "telefone":"99999999",
    "crmv":"999999999",
-   "email":"Veterinarioteste2@teste.com",
+   "email":"vitoria@veterinario.com",
    "senha":"1234",
 }
 ###
@@ -23,11 +23,21 @@ PUT {{apiUrl}}/veterinarios
 Content-Type: application/json
 
 {
- "_id": "63081939954a3c2fd45744c1",
-  "nome": "Veterinario alterado", 
- "telefone": "99999999",
- "crmv": "999999999",
- "cpf": "999999999", 
- "email": "Veterinario2@teste.com"
+ "_id": "634d8e24e51e8f2bb3cf1fac",
+    "nome": "João",
+    "crmv": "12345678",
+    "telefone": "(54) 9 9999-9999",
+    "email": "joao@veterinario.com",
+    "senha": "1234"
+}
+###
+
+# Autenticação 
+POST {{apiUrl}}/loginVeterinario
+Content-Type: application/json
+
+{
+    "email": "joao@veterinario.com",
+    "senha": "1234"
 }
 ###

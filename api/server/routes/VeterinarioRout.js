@@ -8,6 +8,6 @@ routes.route('/veterinarios').post(controle.incluir);
 routes.route('/veterinarios').put(controle.alterar);
 routes.route("/veterinarios/:id").delete(controle.excluir);
 
-//routes.route('/veterinarios/login').post(controle.login);
+routes.route('/veterinarios/login').post(controle.login);
 
 module.exports = routes;

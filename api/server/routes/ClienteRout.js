@@ -8,7 +8,8 @@ routes.route('/clientes').post(controle.incluir);
 routes.route('/clientes').put(controle.alterar);
 routes.route('/clientes/filtro/:filtro').get(controle.filtrar);
 routes.route("/clientes/:id").delete(controle.excluir);
+routes.route('/clientes/:id').get(controle.obterPeloId);
 
-//routes.route('/clientes/login').post(controle.login);
+routes.route('/clientes/login').post(controle.login);
 
 module.exports = routes;

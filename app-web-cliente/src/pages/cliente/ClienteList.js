@@ -13,13 +13,6 @@ const ClienteList = (props) => {
                 label="Editar"
                 onClick={() => props.editar(row._id)}
             ></Button>
-            <Button
-                type="button"
-                icon="pi pi-trash"
-                className="p-button-raised p-button-rounded p-button-text p-button-help"
-                label="Excluir"
-                onClick={() => props.excluir(row._id)}
-            ></Button>
         </>
     );
 

@@ -1,8 +1,11 @@
 @apiUrl = http://localhost:3000/api
 
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ1YWEyNzU0ODliMTM3NzA1YjdmNjgiLCJub21lIjoiRWR1YXJkYSIsImlhdCI6MTY2ODcwODU5NywiZXhwIjoxNjcxMzAwNTk3fQ.50z8k9EfvM2RNFcbyGA12UKJKTCGEBvAWdJ60HZkzpk
+
 # Obter a lista de clientes
 GET {{apiUrl}}/clientes
 Content-Type: application/json
+x-auth-token: {{authToken}}
 ###
 
 # Inserir novo cliente
@@ -22,22 +25,30 @@ PUT {{apiUrl}}/clientes
 Content-Type: application/json
 
 {
- "_id": "6307fe0784068979847e2fd1",
- "nome": "Eduarda alterado 2", 
- "cpf": "99999999",
- "dataNascimento": "2000-01-25", 
- "telefone": "999999999", 
- "email": "teste@teste.com", 
+ "_id": "6345aa275489b137705b7f68",
+ "nome": "Eduarda", 
+ "telefone": "(54) 9 9999-9999", 
+ "email": "eduarda@teste.com", 
  "senha": "1234"
 }
 ###
 
 # Obter pelo id
-GET {{apiUrl}}/clientes/6307fe0784068979847e2fd1
+GET {{apiUrl}}/clientes/6345aa275489b137705b7f68
 Content-Type: application/json
 ###
 
 # Obter atividade filtrando
-GET {{apiUrl}}/clientes/filtro/Fulano
+GET {{apiUrl}}/clientes/filtro/eduarda
 Content-Type: application/json
+###
+
+# Autenticação
+POST {{apiUrl}}/clientes/login
+Content-Type: application/json
+
+{
+    "email": "eduarda@teste.com",
+    "senha": "1234"
+}
 ###

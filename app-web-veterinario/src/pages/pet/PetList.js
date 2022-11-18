@@ -12,7 +12,7 @@ const PetList = (props) => {
                 icon="pi pi-eye"
                 className="p-button-raised p-button-rounded p-button-text p-button-help"
                 label="Vacinas"
-                onClick={() => window.location.href = 'http://localhost:3001/aplicacaoVacinas'}
+                onClick={() => window.location.href = 'http://localhost:3001/aplicacaoVacinas?pet=' + row._id}
             ></Button>
             <Button
                 type="button"

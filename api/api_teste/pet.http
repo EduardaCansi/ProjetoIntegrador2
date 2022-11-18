@@ -5,6 +5,11 @@ GET {{apiUrl}}/pets
 Content-Type: application/json
 ###
 
+# Obter a lista de pets pelo cliente
+GET {{apiUrl}}/petsByCliente/634d8af388653a058bdcaf54
+Content-Type: application/json
+###
+
 # Inserir novo pets
 POST {{apiUrl}}/pets
 Content-Type: application/json

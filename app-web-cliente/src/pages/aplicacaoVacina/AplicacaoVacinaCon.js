@@ -20,7 +20,9 @@ function AplicacaoVacinaCon() {
     }, []);
 
     const atualizarLista = () => {
-        AplicacaoVacinaSrv.getAplicacaoVacinas()
+        const params = new URLSearchParams(window.location.search)
+        const petId = params.get("pet")
+        AplicacaoVacinaSrv.listarByPet(petId)
             .then((resp) => {
                 setAplicacaoVacinas(resp);
                 toastRef.current.show({

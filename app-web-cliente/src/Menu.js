@@ -14,11 +14,24 @@ function Menu() {
             },
         },
         {
-            label: "Veterinarios",
-            icon: "pi pi-fw pi-users",
-            command: () => {
-                navigate("/veterinarios");
-            },
+            label: "Consultas",
+            icon: "pi pi-fw pi-file",
+            items: [
+                {
+                    label: "Veterinarios",
+                    icon: "pi pi-fw pi-users",
+                    command: () => {
+                        navigate("/veterinarios");
+                    },
+                },
+                {
+                    label: "Meu Perfil",
+                    icon: "pi pi-fw pi-user",
+                    command: () => {
+                        navigate("/clientes");
+                    },
+                },
+            ],
         },
         {
             label: "Sair",

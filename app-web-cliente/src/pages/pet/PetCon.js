@@ -7,6 +7,7 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog } from "primereact/confirmdialog";
+import jwtDecode from "jwt-decode";
 
 function PetCon() {
     const [editando] = useState(false);
@@ -18,7 +19,9 @@ function PetCon() {
     }, []);
 
     const atualizarLista = () => {
-        PetSrv.getPets()
+        const token = sessionStorage.getItem('token')
+        const usuarioLogado = jwtDecode(token)
+        PetSrv.listarByCliente(usuarioLogado._id)
             .then((resp) => {
                 setPets(resp);
                 toastRef.current.show({
@@ -47,7 +50,7 @@ function PetCon() {
                 />
             </div>
         );
-    } 
+    }
 }
 
 export default PetCon;

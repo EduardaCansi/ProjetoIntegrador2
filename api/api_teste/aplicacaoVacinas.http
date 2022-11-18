@@ -5,6 +5,11 @@ GET {{apiUrl}}/aplicacaoVacinas
 Content-Type: application/json
 ###
 
+# Obter a lista por pet
+GET {{apiUrl}}/aplicacaoVacinasByPet/63763b1d91b38f4609fabf1e
+Content-Type: application/json
+###
+
 # Inserir novo 
 POST {{apiUrl}}/aplicacaoVacinas
 Content-Type: application/json

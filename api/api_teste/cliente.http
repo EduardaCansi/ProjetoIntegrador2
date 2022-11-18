@@ -25,10 +25,10 @@ PUT {{apiUrl}}/clientes
 Content-Type: application/json
 
 {
- "_id": "6345aa275489b137705b7f68",
- "nome": "Eduarda", 
+ "_id": "634d8af388653a058bdcaf54",
+ "nome": "Maria", 
  "telefone": "(54) 9 9999-9999", 
- "email": "eduarda@teste.com", 
+ "email": "maria@teste.com", 
  "senha": "1234"
 }
 ###

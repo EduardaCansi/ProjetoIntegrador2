@@ -7,6 +7,12 @@ module.exports = {
         }).populate("pet").populate("vacina").populate("veterinario").sort({ nome: 1 }); // -1 decrescente 1 crescente
     },
 
+    listarByPet: async (req, res) => {
+        AplicacaoVacina.find({pet:req.params.id}, (err, objetos) => {
+            (err ? res.status(400).send(err) : res.status(200).json(objetos));
+        }).populate("pet").populate("vacina").populate("veterinario").sort({ nome: 1 }); // -1 decrescente 1 crescente
+    },
+
     incluir: async (req, res) => {
         let obj = new AplicacaoVacina(req.body);
         obj.save((err, obj) => {

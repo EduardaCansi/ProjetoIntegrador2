@@ -7,7 +7,8 @@ import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { Toast } from "primereact/toast";
-import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+import { ConfirmDialog } from "primereact/confirmdialog";
+import jwtDecode from "jwt-decode";
 
 function ClienteCon() {
     const initialState = { id: null, nome: "" };
@@ -21,7 +22,10 @@ function ClienteCon() {
     }, []);
 
     const atualizarLista = () => {
-        ClienteSrv.getClientes()
+        const token = sessionStorage.getItem('token')
+        const usuarioLogado = jwtDecode(token)
+        console.log(usuarioLogado)
+        ClienteSrv.obterPeloId(usuarioLogado._id)
             .then((resp) => {
                 setClientes(resp);
                 toastRef.current.show({

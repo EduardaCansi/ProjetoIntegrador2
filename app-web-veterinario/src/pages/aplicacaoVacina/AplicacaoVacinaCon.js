@@ -21,22 +21,43 @@ function AplicacaoVacinaCon() {
     }, []);
 
     const atualizarLista = () => {
-        AplicacaoVacinaSrv.getAplicacaoVacinas()
-            .then((resp) => {
-                setAplicacaoVacinas(resp);
-                toastRef.current.show({
-                    severity: "sucess",
-                    summary: "Lista atualizada",
-                    life: 3000,
+        const params = new URLSearchParams(window.location.search)
+        const petId = params.get("pet")
+        if (petId) {
+            AplicacaoVacinaSrv.listarByPet(petId)
+                .then((resp) => {
+                    setAplicacaoVacinas(resp);
+                    toastRef.current.show({
+                        severity: "sucess",
+                        summary: "Lista atualizada",
+                        life: 3000,
+                    });
+                })
+                .catch((e) => {
+                    toastRef.current.show({
+                        severity: "error",
+                        summary: e.message,
+                        life: 3000,
+                    });
                 });
-            })
-            .catch((e) => {
-                toastRef.current.show({
-                    severity: "error",
-                    summary: e.message,
-                    life: 3000,
+        } else {
+            AplicacaoVacinaSrv.getAplicacaoVacinas()
+                .then((resp) => {
+                    setAplicacaoVacinas(resp);
+                    toastRef.current.show({
+                        severity: "sucess",
+                        summary: "Lista atualizada",
+                        life: 3000,
+                    });
+                })
+                .catch((e) => {
+                    toastRef.current.show({
+                        severity: "error",
+                        summary: e.message,
+                        life: 3000,
+                    });
                 });
-            });
+        }
     };
 
 

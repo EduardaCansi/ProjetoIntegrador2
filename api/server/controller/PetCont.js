@@ -1,8 +1,15 @@
+const { ReadConcern } = require('mongodb');
 const Pet = require('../model/PetSchema');
 
 module.exports = {
     listar: async (req, res) => {
         Pet.find((err, objetos) => {
+            (err ? res.status(400).send(err) : res.status(200).json(objetos));
+        }).populate("cliente").sort({ nome: 1 }); // -1 decrescente 1 crescente
+    },
+
+    listarByCliente: async (req, res) => {
+        Pet.find({cliente:req.params.id},(err, objetos) => {
             (err ? res.status(400).send(err) : res.status(200).json(objetos));
         }).populate("cliente").sort({ nome: 1 }); // -1 decrescente 1 crescente
     },

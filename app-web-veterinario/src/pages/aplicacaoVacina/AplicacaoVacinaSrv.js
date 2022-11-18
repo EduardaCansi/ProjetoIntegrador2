@@ -3,6 +3,13 @@ import api from "../../services/axios-common";
 class AplicacaoVacinaSrv {
     url = "/aplicacaoVacinas";
 
+    async listarByPet(PetId) {
+        try {
+            const response = await api.get('/aplicacaoVacinasByPet/' + PetId);
+            return response.data;
+        } catch (error) { }
+    }
+
     async getAplicacaoVacinas() {
         try {
             const response = await api.get(this.url);

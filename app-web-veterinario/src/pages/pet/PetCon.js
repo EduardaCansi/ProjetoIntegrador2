@@ -21,32 +21,54 @@ function PetCon() {
     }, []);
 
     const atualizarLista = () => {
-        PetSrv.getPets()
-            .then((resp) => {
-                setPets(resp);
-                toastRef.current.show({
-                    severity: "sucess",
-                    summary: "Lista atualizada",
-                    life: 3000,
+        const params = new URLSearchParams(window.location.search)
+        const clienteId = params.get("cliente")
+        if (clienteId) {
+            PetSrv.listarByCliente(clienteId)
+                .then((resp) => {
+                    setPets(resp);
+                    toastRef.current.show({
+                        severity: "sucess",
+                        summary: "Lista atualizada",
+                        life: 3000,
+                    });
+                })
+                .catch((e) => {
+                    toastRef.current.show({
+                        severity: "error",
+                        summary: e.message,
+                        life: 3000,
+                    });
                 });
-            })
-            .catch((e) => {
-                toastRef.current.show({
-                    severity: "error",
-                    summary: e.message,
-                    life: 3000,
+        } else {
+
+            PetSrv.getPets()
+                .then((resp) => {
+                    setPets(resp);
+                    toastRef.current.show({
+                        severity: "sucess",
+                        summary: "Lista atualizada",
+                        life: 3000,
+                    });
+                })
+                .catch((e) => {
+                    toastRef.current.show({
+                        severity: "error",
+                        summary: e.message,
+                        life: 3000,
+                    });
                 });
-            });
+        }
     };
 
     const editar = (_id) => {
         const pet = pets.find((pet) => pet._id == _id)
         setPet({
-          ...pet,
-          cliente: pet.cliente._id
+            ...pet,
+            cliente: pet.cliente._id
         });
         setEditando(true);
-      };
+    };
 
     const excluir = (_id) => {
         confirmDialog({

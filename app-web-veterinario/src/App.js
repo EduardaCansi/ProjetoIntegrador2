@@ -8,7 +8,6 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Menu from './Menu';
 import LoginForm from "./pages/login/LoginForm";
 
-
 const VacinaCon = lazy(() => import("./pages/vacina/VacinaCon"));
 const VeterinarioCon = lazy(() => import("./pages/veterinario/VeterinarioCon"));
 const PetCon = lazy(() => import("./pages/pet/PetCon"));

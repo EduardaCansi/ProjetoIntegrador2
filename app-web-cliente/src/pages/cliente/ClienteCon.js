@@ -24,7 +24,6 @@ function ClienteCon() {
     const atualizarLista = () => {
         const token = sessionStorage.getItem('token')
         const usuarioLogado = jwtDecode(token)
-        console.log(usuarioLogado)
         ClienteSrv.obterPeloId(usuarioLogado._id)
             .then((resp) => {
                 setClientes(resp);

@@ -45,6 +45,7 @@ const VeterinarioForm = (props) => {
                                 })}
                                 defaultValue={props.veterinario.nome}
                                 onChange={handleInputChange}
+                                placeholder="Digite o nome"
                             />
                             {errors.nome && (
                                 <span style={{ color: "red" }}>{errors.nome.message}</span>
@@ -76,6 +77,7 @@ const VeterinarioForm = (props) => {
                                 })}
                                 defaultValue={props.veterinario.crmv}
                                 onChange={handleInputChange}
+                                placeholder="Digite o Crmv"
                             />
                             {errors.crmv && (
                                 <span style={{ color: "red" }}>{errors.crmv.message}</span>
@@ -93,6 +95,7 @@ const VeterinarioForm = (props) => {
                                 })}
                                 defaultValue={props.veterinario.email}
                                 onChange={handleInputChange}
+                                placeholder="Digite o Email"
                             />
                             {errors.email && (
                                 <span style={{ color: "red" }}>{errors.email.message}</span>
@@ -109,6 +112,7 @@ const VeterinarioForm = (props) => {
                                 required="true"
                                 defaultValue={props.veterinario.senha}
                                 onChange={handleInputChange}
+                                placeholder="Digite a Senha"
                             />
                         </div>
                     </div>

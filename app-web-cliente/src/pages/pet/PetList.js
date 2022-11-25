@@ -35,10 +35,13 @@ const PetList = (props) => {
                     onSelectionChange={(e) => props.setPets(e.value)}
                 >
                     <Column field="nome" header="Nome" sortable filter></Column>
-                    <Column field="especie" header="Especie" filter></Column>
+                    <Column field="raca" header="Raça"></Column>
+                    <Column field="especie" header="Espécie" filter></Column>
+                    <Column field="dataNascimento" header="Data Nascimento"></Column>
+                    <Column field="pelagem" header="Pelagem"></Column>
                     <Column field="sexo" header="Sexo" filter></Column>
                     <Column field="porte" header="Porte" filter></Column>
-                    <Column field="cliente.nome" header="Dono" filter></Column>
+                    <Column field="cliente.nome" header="Tutor"></Column>
                     <Column header="Operações" body={operacoes}></Column>
                 </DataTable>
             </div>

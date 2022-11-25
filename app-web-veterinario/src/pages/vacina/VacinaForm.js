@@ -43,6 +43,7 @@ const VacinaForm = (props) => {
                                 })}
                                 defaultValue={props.vacina.nome}
                                 onChange={handleInputChange}
+                                placeholder="Digite o nome da Vacina"
                             />
                             {errors.nome && (
                                 <span style={{ color: "red" }}>{errors.nome.message}</span>

@@ -22,7 +22,7 @@ const AplicacaoVacinaList = (props) => {
                     selection={props.aplicacaoVacina}
                     onSelectionChange={(e) => props.setAplicacaoVacinas(e.value)}
                 >
-                    <Column field="pet.nome" header="Pet" sortable filter></Column>
+                    <Column field="pet.nome" header="Pet"></Column>
                     <Column field="vacina.nome" header="Vacina" filter></Column>
                     <Column field="dataAplicacao" header="Data Aplicação"></Column>
                     <Column field="dataReaplicacao" header="Data Reaplicação"></Column>

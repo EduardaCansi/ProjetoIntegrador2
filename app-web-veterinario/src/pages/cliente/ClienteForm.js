@@ -45,6 +45,7 @@ const ClienteForm = (props) => {
                                 })}
                                 defaultValue={props.cliente.nome}
                                 onChange={handleInputChange}
+                                placeholder="Nome do Cliente"
                             />
                             {errors.nome && (
                                 <span style={{ color: "red" }}>{errors.nome.message}</span>
@@ -76,6 +77,7 @@ const ClienteForm = (props) => {
                                 })}
                                 defaultValue={props.cliente.email}
                                 onChange={handleInputChange}
+                                placeholder="Email"
                             />
                             {errors.email && (
                                 <span style={{ color: "red" }}>{errors.email.message}</span>
@@ -92,6 +94,7 @@ const ClienteForm = (props) => {
                                 required="true"
                                 defaultValue={props.cliente.senha}
                                 onChange={handleInputChange}
+                                placeholder="Senha"
                             />
                         </div>
                     </div>

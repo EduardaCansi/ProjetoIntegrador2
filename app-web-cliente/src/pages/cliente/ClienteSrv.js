@@ -3,7 +3,7 @@ import api from "../../services/axios-common";
 class ClienteSrv {
     url = "/clientes";
 
-    async obterPeloId(Cliente) {
+    async obterPeloId(id) {
         try {
             const response = await api.get(this.url);
             return response.data;

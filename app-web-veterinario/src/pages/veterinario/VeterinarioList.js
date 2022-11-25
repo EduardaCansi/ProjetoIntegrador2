@@ -25,7 +25,7 @@ const VeterinarioList = (props) => {
 
     return (
         <div style={{ padding: 15 }}>
-            <h4 style={{ textAlign: "center" }}>Manter Veterinarios</h4>
+            <h4 style={{ textAlign: "center" }}>Listagem de Veterinarios</h4>
 
             <div style={{ textAlign: "end", padding: 5 }}>
                 <Button

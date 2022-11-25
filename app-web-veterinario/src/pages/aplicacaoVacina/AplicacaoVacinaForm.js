@@ -16,7 +16,9 @@ const AplicacaoVacinaForm = (props) => {
     const [veterinarios, setVeterinarios] = useState([]);
 
     const {
+        register,
         handleSubmit,
+        formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
         props.salvar();
@@ -86,12 +88,14 @@ const AplicacaoVacinaForm = (props) => {
                             <label htmlFor="dataAplicacao">Data Aplicação*</label>
                             <InputMask
                                 name="dataAplicacao"
+                                required="true"
                                 mask="99/99/9999"
                                 placeholder="99/99/9999"
                                 slotChar="dd/mm/yyyy"
                                 defaultValue={props.aplicacaoVacina.dataAplicacao}
                                 onChange={handleInputChange}>
                             </InputMask>
+
                         </div>
                     </div>
 
@@ -116,6 +120,7 @@ const AplicacaoVacinaForm = (props) => {
                                 name="obs"
                                 defaultValue={props.aplicacaoVacina.obs}
                                 onChange={handleInputChange}
+                                placeholder="Observações"
                             />
                         </div>
                     </div>

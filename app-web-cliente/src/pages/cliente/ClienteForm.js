@@ -25,7 +25,7 @@ const ClienteForm = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div style={{ padding: 15 }}>
                 <div className="card">
-                    <h4 style={{ textAlign: "center" }}>Cadastro de Clientes</h4>
+                    <h4 style={{ textAlign: "center" }}>Meu Perfil</h4>
 
                     <div style={{ padding: 15 }} className="p-fluid grid formgrid">
                         <div className="field col-12 md:col-4">
@@ -43,7 +43,7 @@ const ClienteForm = (props) => {
                                         message: "O campo deve ter no mínimo 2 caracteres!",
                                     },
                                 })}
-                                defaultValue={props.cliente.nome}
+                                value={props.cliente.nome}
                                 onChange={handleInputChange}
                             />
                             {errors.nome && (
@@ -85,11 +85,10 @@ const ClienteForm = (props) => {
 
                     <div style={{ padding: 15 }} className="p-fluid grid formgrid">
                         <div className="field col-12 md:col-4">
-                            <label htmlFor="senha">Senha*</label>
+                            <label htmlFor="senha">Senha</label>
                             <Password
                                 toggleMask
                                 name="senha"
-                                required="true"
                                 defaultValue={props.cliente.senha}
                                 onChange={handleInputChange}
                             />
@@ -102,13 +101,6 @@ const ClienteForm = (props) => {
                             icon="pi pi-check"
                             className="p-button-raised p-button-rounded p-button-text p-button-help"
                             label="Salvar"
-                        ></Button>
-                        <Button
-                            type="button"
-                            icon="pi pi-times"
-                            className="p-button-raised p-button-rounded p-button-text p-button-help"
-                            label="Cancelar"
-                            onClick={props.cancelar}
                         ></Button>
                     </div>
                 </div>

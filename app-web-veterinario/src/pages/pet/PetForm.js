@@ -11,6 +11,8 @@ const PetForm = (props) => {
 
     const [clientes, setClientes] = useState([]);
 
+    const dentroCliente = (new URLSearchParams(window.location.search)).get("cliente");
+
     const {
         register,
         handleSubmit,
@@ -122,18 +124,14 @@ const PetForm = (props) => {
                             <label htmlFor="dataNascimento">Data Nascimento*</label>
                             <InputMask
                                 name="dataNascimento"
-                                {...register("dataNascimento", {
-                                    required: { value: true, message: "Campo obrigatório!" }
-                                })}
+                                required="true"
                                 mask="99/99/9999"
                                 placeholder="99/99/9999"
                                 slotChar="dd/mm/yyyy"
                                 defaultValue={props.pet.dataNascimento}
                                 onChange={handleInputChange}>
                             </InputMask>
-                            {errors.dataNascimento && (
-                                <span style={{ color: "red" }}>{errors.dataNascimento.message}</span>
-                            )}
+
                         </div>
                     </div>
 
@@ -211,19 +209,20 @@ const PetForm = (props) => {
                         </div>
                     </div>
 
-                    <div style={{ padding: 15 }} className="p-fluid grid formgrid">
-                        <div className="field col-12 md:col-4">
-                            <label htmlFor="cliente">Tutor*</label>
-                            <Dropdown
-                                name="cliente"
-                                value={props.pet.cliente}
-                                options={clientes}
-                                onChange={handleInputChange}
-                                placeholder="Selecione o Tutor"
-                            />
+                    {!dentroCliente &&
+                        <div style={{ padding: 15 }} className="p-fluid grid formgrid">
+                            <div className="field col-12 md:col-4">
+                                <label htmlFor="cliente">Tutor*</label>
+                                <Dropdown
+                                    name="cliente"
+                                    value={props.pet.cliente}
+                                    options={clientes}
+                                    onChange={handleInputChange}
+                                    placeholder="Selecione o Tutor"
+                                />
 
-                        </div>
-                    </div>
+                            </div>
+                        </div>}
 
                     <div style={{ textAlign: "center", padding: 8 }}>
                         <Button

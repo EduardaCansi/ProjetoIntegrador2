@@ -108,7 +108,9 @@ function PetCon() {
         setEditando(true);
     };
 
-    const salvar = () => {
+    const salvar = async () => {
+        const clienteId = (new URLSearchParams(window.location.search)).get("cliente");
+        if (!pet.cliente && clienteId) pet.cliente = clienteId;
         if (pet._id == null) {
             // inclussão
             PetSrv.postPets(pet)

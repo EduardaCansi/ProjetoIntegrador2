@@ -19,15 +19,17 @@ module.exports = {
 
     alterar: async (req, res) => {
         let obj = new Cliente(req.body);
-        const salt = await bcrypt.genSalt(Number(process.env.BCRYPT_SALT));
-        obj.senha = await bcrypt.hash(obj.senha, salt);
+        if (obj.senha) {
+            const salt = await bcrypt.genSalt(Number(process.env.BCRYPT_SALT));
+            obj.senha = await bcrypt.hash(obj.senha, salt);
+        }
         Cliente.updateOne({ _id: obj._id }, obj, function (err) {
             (err ? res.status(400).send(err) : res.status(200).json(obj));
         });
     },
 
     obterPeloId: async (req, res) => {
-        Cliente.findOne({ _id: req.params.id }, function (err, objetos) {
+        Cliente.findOne({ _id: req.params.id }, { senha: false }, function (err, objetos) {
             (err ? res.status(400).send(err) : res.status(200).json(objetos));
         });
     },

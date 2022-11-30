@@ -5,7 +5,7 @@ class ClienteSrv {
 
     async obterPeloId(id) {
         try {
-            const response = await api.get(this.url);
+            const response = await api.get(`${this.url}/${id}`);
             return response.data;
         } catch (error) { }
     }

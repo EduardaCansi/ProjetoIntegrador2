@@ -10,12 +10,12 @@ POST {{apiUrl}}/veterinarios
 Content-Type: application/json
 
 {
-   "nome":"Vitoria",
-   "telefone":"99999999",
-   "crmv":"999999999",
-   "email":"vitoria@veterinario.com",
-   "senha":"1234",
-}
+    "nome": "Marcos Moreira",
+    "crmv": "5217895",
+    "telefone": "(54) 9 98124-5124",
+    "email": "marcosmoreira@veterinario.com",
+    "senha": "1234"
+  }
 ###
 
 # Alterar 
@@ -23,11 +23,11 @@ PUT {{apiUrl}}/veterinarios
 Content-Type: application/json
 
 {
- "_id": "634d8e24e51e8f2bb3cf1fac",
-    "nome": "João",
-    "crmv": "12345678",
-    "telefone": "(54) 9 9999-9999",
-    "email": "joao@veterinario.com",
+ "_id": "6387a9a17924d35fdbe4cf78",
+    "nome": "Marcos Moreira",
+    "crmv": "5217895",
+    "telefone": "(54) 9 9824-5124",
+    "email": "marcosmoreira@veterinario.com",
     "senha": "1234"
 }
 ###

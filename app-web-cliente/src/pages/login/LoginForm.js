@@ -67,6 +67,14 @@ const LoginForm = (props) => {
                 <div style={{ textAlign: "center", padding: 8 }}>
                     <Button icon="pi pi-sign-in" type="submit" label="Login" className="p-button-raised p-button-rounded p-button-text" />
                 </div>
+                <div style={{ textAlign: "center", padding: 8 }}>
+                    <Button
+                        icon="pi pi-user"
+                        type="button"
+                        label="Área Veterinario"
+                        className="p-button-raised p-button-rounded p-button-text"
+                        onClick={() => window.location.href = 'http://localhost:3001'} />
+                </div>
             </div>
         </form>
     );

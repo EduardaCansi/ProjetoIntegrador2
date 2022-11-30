@@ -99,7 +99,9 @@ function AplicacaoVacinaCon() {
         setEditando(true);
     };
 
-    const salvar = () => {
+    const salvar = async () => {
+        const petId = (new URLSearchParams(window.location.search)).get("pet");
+        if (!aplicacaoVacina.pet && petId) aplicacaoVacina.pet = petId;
         if (aplicacaoVacina._id == null) {
             // inclussão
             AplicacaoVacinaSrv.postAplicacaoVacinas(aplicacaoVacina)

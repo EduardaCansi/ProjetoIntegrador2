@@ -15,10 +15,10 @@ const AplicacaoVacinaForm = (props) => {
     const [vacinas, setVacinas] = useState([]);
     const [veterinarios, setVeterinarios] = useState([]);
 
+    const dentroPet = (new URLSearchParams(window.location.search)).get("pet");
+
     const {
-        register,
         handleSubmit,
-        formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
         props.salvar();
@@ -57,18 +57,20 @@ const AplicacaoVacinaForm = (props) => {
                 <div className="card">
                     <h4 style={{ textAlign: "center" }}>Cadastro de Aplicação de Vacinas</h4>
 
-                    <div style={{ padding: 15 }} className="p-fluid grid formgrid">
-                        <div className="field col-12 md:col-4">
-                            <label htmlFor="pet">Pet*</label>
-                            <Dropdown
-                                name="pet"
-                                value={props.aplicacaoVacina.pet}
-                                options={pets}
-                                onChange={handleInputChange}
-                                placeholder="Selecione o Pet"
-                            />
+                    {!dentroPet &&
+                        <div style={{ padding: 15 }} className="p-fluid grid formgrid">
+                            <div className="field col-12 md:col-4">
+                                <label htmlFor="pet">Pet*</label>
+                                <Dropdown
+                                    name="pet"
+                                    value={props.aplicacaoVacina.pet}
+                                    options={pets}
+                                    onChange={handleInputChange}
+                                    placeholder="Selecione o Pet"
+                                />
+                            </div>
                         </div>
-                    </div>
+                    }
 
                     <div style={{ padding: 15 }} className="p-fluid grid formgrid">
                         <div className="field col-12 md:col-4">
